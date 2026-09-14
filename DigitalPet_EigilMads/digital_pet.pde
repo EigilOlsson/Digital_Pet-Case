@@ -5,10 +5,8 @@ class DigitalPet {
   float energy;
   boolean glad =true;
   float maxEnergy;
-  float energyUse=0.2;
-  boolean energyTrue = true;
-  int sleepTimer = 0;
-  
+  float energyUse=0.1;
+
   DigitalPet(String name, float x, float y) {
     this.name = name;
     this.x = x;
@@ -17,42 +15,16 @@ class DigitalPet {
     maxEnergy = 200;
   }
 
-void update() {
-
-  if (energyTrue) {
-    energy -= energyUse;
-  } else {
-    energy += energyUse;
-    sleepTimer--;
-
-    if (sleepTimer <= 0) {
-      energyTrue = true;
+  void update() {
+    energy=energy-energyUse;
+    if (energy >= maxEnergy) {
+      energy = maxEnergy;
     }
   }
 
-  if (energy < 0) {
-    energy = 0;
+  void sleep() {
+    energy = energy+energyUse*4;
   }
-
-  if (energy > maxEnergy) {
-    energy = maxEnergy;
-  }
-
-  if (energy < maxEnergy / 2) {
-    glad = false;
-  } else {
-    glad = true;
-  }
-
-  if (energy < 10 && energyTrue) {
-    sleep();
-  }
-}
-
-void sleep() {
-  energyTrue = false;
-  sleepTimer = 480;
-}
 
 
   void display() {
@@ -114,5 +86,5 @@ void sleep() {
       line(x, y - 7, x - 7, y - 12);
       line(x, y - 7, x + 7, y - 12);
     }
-    }
   }
+}

@@ -1,8 +1,12 @@
 DigitalPet pet;
+Activity sleepActivity;
 
 void setup() {
   size(600, 400);
-  pet = new DigitalPet("Phip", width/2, height/2);
+  pet = new DigitalPet("Incest", width/2, height/2);
+  
+  sleepActivity = new Activity("Sleep", 15);
+
 }
 
 void draw() {
@@ -14,6 +18,6 @@ void draw() {
 
 void keyPressed(){
   if(key=='s'||key=='S'){
-    pet.sleep();
+    sleepButton.click(pet);
   }
 }
