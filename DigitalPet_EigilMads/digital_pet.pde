@@ -3,7 +3,6 @@ class DigitalPet {
   float x;
   float y;
   float energy;
-  boolean glad = true;
   float maxEnergy;
   float energyUse = 0.1;
 
@@ -20,6 +19,9 @@ class DigitalPet {
 
     if (energy >= maxEnergy) {
       energy = maxEnergy;
+    }
+    if (pet.energy < 0) {
+      pet.energy = 0;
     }
   }
 
@@ -41,8 +43,8 @@ class DigitalPet {
 
     // Øjne
     fill(30);
-    ellipse(x - 15, y - 35, 10, 14);
-    ellipse(x + 15, y - 35, 10, 14);
+    ellipse(x - 15, y - 35, 14, 18);
+    ellipse(x + 15, y - 35, 14, 18);
 
     // Næse
     fill(255, 120, 140);
@@ -72,7 +74,7 @@ class DigitalPet {
     textSize(20);
     text("Energi: " + int(energy), x, y + 75);
 
-    if (glad == false) {
+    if (energy < 100) {
       // Mund sur
       stroke(30);
       line(x, y - 12, x - 7, y - 7);

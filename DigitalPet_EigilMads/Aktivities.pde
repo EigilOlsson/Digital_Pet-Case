@@ -10,7 +10,7 @@ class Activity {
   void sleep(DigitalPet pet) {
     pet.energy += energyChange;
 
-    if (pet.energy > pet.maxEnergy) {
+    if (pet.energy >= pet.maxEnergy) {
       pet.energy = pet.maxEnergy;
     }
   }
