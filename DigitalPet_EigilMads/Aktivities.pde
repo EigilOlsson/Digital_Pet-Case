@@ -1,6 +1,8 @@
 class Activity {
   String title;
   float energyChange;
+  
+
 
   Activity(String title, float energyChange) {
     this.title = title;
@@ -11,4 +13,6 @@ class Activity {
     pet.changeEnergy(energyChange);
 
   }
+  
+
 }

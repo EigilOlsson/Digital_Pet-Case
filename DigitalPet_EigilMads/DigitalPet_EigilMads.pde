@@ -1,11 +1,18 @@
 DigitalPet pet;
 Activity sleepActivity;
+float petX = 300;
+float petY = 200;
+
+Eye eye, eye2;
 
 void setup() {
   size(800, 600);
   pet = new DigitalPet("Phip", width/2, height/2);
 
   sleepActivity = new Activity("Sleep", 0.4);
+
+  eye = new Eye("eye1", petX-15, petY-40, 20);
+  eye2 = new Eye("eye1", petX+15, petY-40, 20);
 }
 
 void draw() {
@@ -14,6 +21,11 @@ void draw() {
   pet.update();
   pet.display();
 
+  eye.update(mouseX, mouseY);
+  eye.display();
+
+  eye2.update(mouseX, mouseY);
+  eye2.display();
   //Baggrunds design
   //Toppen
   fill(#A58B44);
@@ -61,6 +73,7 @@ void draw() {
   fill(#C69926);
   quad(300, 380, 300, 200, 330, 200, 350, 360);
 }
+
 
 void keyPressed() {
   if (key == 's' || key == 'S') {
