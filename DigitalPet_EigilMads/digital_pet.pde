@@ -3,9 +3,9 @@ class DigitalPet {
   float x;
   float y;
   float energy;
-  boolean glad =true;
+  boolean glad = true;
   float maxEnergy;
-  float energyUse=0.1;
+  float energyUse = 0.1;
 
   DigitalPet(String name, float x, float y) {
     this.name = name;
@@ -16,19 +16,16 @@ class DigitalPet {
   }
 
   void update() {
-    energy=energy-energyUse;
+    energy = energy - energyUse;
+
     if (energy >= maxEnergy) {
       energy = maxEnergy;
     }
   }
 
-  void sleep() {
-    energy = energy+energyUse*4;
-  }
-
-
   void display() {
     noStroke();
+
     // Krop
     fill(120, 200, 140);
     ellipse(x, y + 20, 90, 80);
@@ -51,7 +48,6 @@ class DigitalPet {
     fill(255, 120, 140);
     triangle(x, y - 20, x - 6, y - 12, x + 6, y - 12);
 
-
     // Halsbånd
     stroke(80, 40, 100);
     strokeWeight(7);
@@ -69,13 +65,12 @@ class DigitalPet {
     strokeWeight(2);
     ellipse(x, y + 15, 38, 30);
 
-
     fill(0);
     textAlign(CENTER);
-    text(name, x, y +17);
+    text(name, x, y + 17);
     text("Energi: " + int(energy), x, y + 75);
 
-    if (glad==false) {
+    if (glad == false) {
       // Mund sur
       stroke(30);
       line(x, y - 12, x - 7, y - 7);

@@ -7,7 +7,11 @@ class Activity {
     this.energyChange = energyChange;
   }
 
-  void perform(DigitalPet sleep) {
-    DigitalPet.change
+  void sleep(DigitalPet pet) {
+    pet.energy += energyChange;
+
+    if (pet.energy > pet.maxEnergy) {
+      pet.energy = pet.maxEnergy;
+    }
   }
 }
