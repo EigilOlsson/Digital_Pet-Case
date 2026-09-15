@@ -2,9 +2,9 @@ class DigitalPet {
   String name;
   float x;
   float y;
-  float energy;
+  private float energy;
   float maxEnergy;
-  float energyUse = 0.1;
+  float energyUse = 0.4;
 
   DigitalPet(String name, float x, float y) {
     this.name = name;
@@ -16,14 +16,14 @@ class DigitalPet {
 
   void update() {
     energy = energy - energyUse;
-
-    if (energy >= maxEnergy) {
-      energy = maxEnergy;
-    }
-    if (pet.energy < 0) {
-      pet.energy = 0;
-    }
+    energy = constrain(energy, 0, 200);
   }
+  
+  void changeEnergy(float amount) {
+  energy += amount;
+  energy = constrain(energy, 0, 200);
+  }
+  
 
   void display() {
     noStroke();
