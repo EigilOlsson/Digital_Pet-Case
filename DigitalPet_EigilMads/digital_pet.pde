@@ -41,10 +41,6 @@ class DigitalPet {
     triangle(x - 35, y - 50, x - 25, y - 85, x - 5, y - 55);
     triangle(x + 35, y - 50, x + 25, y - 85, x + 5, y - 55);
 
-    // Øjne
-    fill(30);
-    ellipse(x - 15, y - 35, 14, 18);
-    ellipse(x + 15, y - 35, 14, 18);
 
     // Næse
     fill(255, 120, 140);
