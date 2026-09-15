@@ -67,7 +67,9 @@ class DigitalPet {
 
     fill(0);
     textAlign(CENTER);
+    textSize(12);
     text(name, x, y + 17);
+    textSize(20);
     text("Energi: " + int(energy), x, y + 75);
 
     if (glad == false) {
