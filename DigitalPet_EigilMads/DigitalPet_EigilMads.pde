@@ -1,13 +1,13 @@
 DigitalPet pet;
 Activity sleepActivity;
-float petX = 300;
-float petY = 200;
+float petX = 400;
+float petY = 300;
 
 Eye eye, eye2;
 
 void setup() {
   size(800, 600);
-  pet = new DigitalPet("Phip", width/2, height/2);
+  pet = new DigitalPet("Phip", petX, petY);
 
   sleepActivity = new Activity("Sleep", 0.4);
 
@@ -18,14 +18,6 @@ void setup() {
 void draw() {
   background(#E5E5E3);
 
-  pet.update();
-  pet.display();
-
-  eye.update(mouseX, mouseY);
-  eye.display();
-
-  eye2.update(mouseX, mouseY);
-  eye2.display();
   //Baggrunds design
   //Toppen
   fill(#A58B44);
@@ -72,6 +64,15 @@ void draw() {
   
   fill(#C69926);
   quad(300, 380, 300, 200, 330, 200, 350, 360);
+  
+    pet.update();
+  pet.display();
+
+  eye.update(mouseX, mouseY);
+  eye.display();
+
+  eye2.update(mouseX, mouseY);
+  eye2.display();
 }
 
 
