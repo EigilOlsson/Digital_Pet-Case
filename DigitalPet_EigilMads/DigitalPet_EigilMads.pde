@@ -9,7 +9,7 @@ void setup() {
   size(800, 600);
   pet = new DigitalPet("Phip", petX, petY);
 
-  sleepActivity = new Activity("Sleep", 0.4);
+  sleepActivity = new Activity("Sleep", 1);
 
   eye = new Eye("eye1", petX-15, petY-40, 20);
   eye2 = new Eye("eye1", petX+15, petY-40, 20);
@@ -96,5 +96,6 @@ void draw() {
 void keyPressed() {
   if (key == 's' || key == 'S') {
     sleepActivity.sleep(pet);
+    
   }
 }

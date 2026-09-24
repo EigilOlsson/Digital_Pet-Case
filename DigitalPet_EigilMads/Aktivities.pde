@@ -1,17 +1,17 @@
 class Activity {
   String title;
-  float energyChange;
-  
+  int energyChange;
 
 
-  Activity(String title, float energyChange) {
+
+  Activity(String title, int energyChange) {
     this.title = title;
     this.energyChange = energyChange;
   }
 
   void sleep(DigitalPet pet) {
     pet.changeEnergy(energyChange);
-
+   
   }
   
 
