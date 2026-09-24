@@ -54,18 +54,35 @@ void draw() {
   fill(#583C13);
   rect(0, 400, 300, 20);
 
-  //Rammen til køleren:
+  //Rammen til hylden:
   noStroke();
   fill(#DEB95C);
   rect(290, 200, 10, 200);
-  
+
   rect(0, 200, 300, 10);
   rect(0, 300, 300, 10);
-  
+
   fill(#C69926);
   quad(300, 380, 300, 200, 330, 200, 350, 360);
-  
-    pet.update();
+
+  //Hylder
+  quad(0, 370, 0, 400, 290, 400, 290, 370);
+
+  quad(0, 300, 0, 280, 290, 280, 290, 300);
+
+  //Menu skilt
+  fill(#674F0A);
+  rect(600, 150, 180, 130);
+  fill(#E5E5E3);
+  rect(610, 160, 160, 110);
+  textSize(16);
+  fill(0);
+  for(int i = 0; i < 5; i++){
+  text("~~~~~~~~~~~~" + " $$$", 690, 180+i*20);
+  }
+
+
+  pet.update();
   pet.display();
 
   eye.update(mouseX, mouseY);

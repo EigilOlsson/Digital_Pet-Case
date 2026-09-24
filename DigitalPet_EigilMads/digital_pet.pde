@@ -4,7 +4,7 @@ class DigitalPet {
   float y;
   private float energy;
   float maxEnergy;
-  float energyUse = 0.4;
+  float energyUse = 0.1;
 
   DigitalPet(String name, float x, float y) {
     this.name = name;
@@ -19,8 +19,8 @@ class DigitalPet {
     energy = constrain(energy, 0, 200);
   }
   
-  void changeEnergy(float amount) {
-  energy += amount;
+  void changeEnergy(float energyChange) {
+  energy += energyChange;
   energy = constrain(energy, 0, 200);
   }
   
