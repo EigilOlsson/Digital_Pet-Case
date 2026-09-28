@@ -4,7 +4,9 @@ class DigitalPet {
   float y;
   private float energy;
   float maxEnergy;
-  float energyUse = 0.1;
+  float energyUse;
+  boolean energyState;
+
 
   DigitalPet(String name, float x, float y) {
     this.name = name;
@@ -12,18 +14,29 @@ class DigitalPet {
     this.y = y;
     energy = 200;
     maxEnergy = 200;
+    energyUse=0.1;
+    energyState = true;
   }
 
   void update() {
-    energy = energy - energyUse;
-    energy = constrain(energy, 0, 200);
+    if (energyState==true) {
+      energy = energy - energyUse;
+      energy = constrain(energy, 0, 200);
+    } else {
+      energy += energy + energyUse;
+      energy = constrain(energy, 0, 200);
+      energyState=true;
+    }
   }
-  
-  void changeEnergy(float energyChange) {
-  energy += energyChange;
-  energy = constrain(energy, 0, 200);
+
+  void changeEnergy(int energyChange) {
+    if (energyChange==1) {
+      energyState=false;
+      energy = constrain(energy, 0, 200);
+      eye.sleepyEyes(1);
+    }
   }
-  
+
 
   void display() {
     noStroke();
@@ -45,6 +58,19 @@ class DigitalPet {
     // Næse
     fill(255, 120, 140);
     triangle(x, y - 20, x - 6, y - 12, x + 6, y - 12);
+
+    // knorhår
+    fill(130);
+    rect(x+5, y - 17, 13, 2);
+    stroke(130);
+
+    line(x+9, y-15, x+19, y-10);
+    line(x+9, y-17, x+19, y-22);
+    line(x-9, y-15, x-19, y-10);
+    line(x-9, y-17, x-19, y-22);
+    noStroke();
+    rect(x-17, y - 17, 13, 2);
+
 
     // Halsbånd
     stroke(80, 40, 100);
@@ -69,6 +95,9 @@ class DigitalPet {
     text(name, x, y + 17);
     textSize(20);
     text("Energi: " + int(energy), x, y + 75);
+
+
+
 
     if (energy < 100) {
       // Mund sur
