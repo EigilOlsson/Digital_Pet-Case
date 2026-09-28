@@ -3,6 +3,7 @@ Activity sleepActivity;
 Design design;
 float petX = 400;
 float petY = 300;
+float lastTime;
 
 Eye eye, eye2;
 
@@ -47,9 +48,12 @@ void draw() {
 void keyPressed() {
   if (key == 's' || key == 'S') {
     sleepActivity.sleep(pet);
-    particles.add(new SleepParticle(
-      petX + random(-16, 16),
-      petY - 50 + random(-16, 16)
-      ));
+    if (millis() - lastTime > 150) {
+      particles.add(new SleepParticle(
+        petX + random(-16, 16),
+        petY - 50 + random(-16, 16)
+        ));
+      lastTime = millis();
+    }
   }
 }
