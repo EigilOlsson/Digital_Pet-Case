@@ -6,6 +6,8 @@ float petY = 300;
 
 Eye eye, eye2;
 
+ArrayList<Particle> particles = new ArrayList<Particle>();
+
 void setup() {
   size(800, 600);
   pet = new DigitalPet("Phip", petX, petY);
@@ -19,7 +21,7 @@ void setup() {
 
 void draw() {
   design.create();
-  
+
   pet.update();
   pet.display();
 
@@ -28,11 +30,26 @@ void draw() {
 
   eye2.update(mouseX, mouseY);
   eye2.display();
+
+  for (int i = particles.size() - 1; i >= 0; i--) {
+    Particle p = particles.get(i);
+
+    p.update();
+    p.display();
+
+    if (p.isDead()) {
+      particles.remove(i);
+    }
+  }
 }
 
 
 void keyPressed() {
   if (key == 's' || key == 'S') {
     sleepActivity.sleep(pet);
+    particles.add(new SleepParticle(
+      petX + random(-16, 16),
+      petY - 50 + random(-16, 16)
+      ));
   }
 }

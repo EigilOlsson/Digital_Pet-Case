@@ -8,6 +8,8 @@ class Design {
     background(#E5E5E3);
     //Baggrunds design
     //Toppen
+    strokeWeight(2);
+    stroke(0);
     fill(#A58B44);
     rect(0, 0, width, 100);
     fill(#674F0A);
@@ -18,11 +20,13 @@ class Design {
     textMode(CENTER);
     text("COFFEE", width/2, 70);
     //Gulvet
+    fill(#E0C67F);
+    rect(0, 480, width, 120);
     strokeWeight(2);
-    for (int x = 0; x < 15; x++) {
+    for (int x = 0; x < 20; x++) {
       for (int y = 0; y < 4; y++) {
-        fill(#E0C67F);
-        rect(0+x*55, height-y*40, 55, 55);
+        line(-50+x*75, 600, 50+x*75, 480);
+        line(850-x*75, 600, 750-x*75, 480);
       }
     }
     //Disken
@@ -68,5 +72,7 @@ class Design {
     for (int i = 0; i < 5; i++) {
       text("~~~~~~~~~~~~" + " $$$", 690, 180+i*20);
     }
+
+    //Skål til vand
   }
 }
