@@ -5,6 +5,7 @@ class Eye {
   float eyeX;
   float eyeY;
   float eyeR;
+  float lastTime;
   boolean sleepyState;
 
   Eye(String titleEye, float eyeX, float eyeY, float eyeR) {
@@ -23,14 +24,13 @@ class Eye {
   }
 
   void sleepyEyes(float sleep) {
-    if (sleep < 1) {
+    if (sleep >= 1) {
       sleepyState=false;
-    
     }
   }
 
   void display() {
-    if(sleepyState){
+    if (sleepyState) {
       pushMatrix();
       translate(eyeX, eyeY);
       fill(255);
@@ -41,19 +41,15 @@ class Eye {
       fill(255);
       ellipse(eyeR/6, 0, eyeR/3, eyeR/3);
       popMatrix();
-    }else {
-      pushMatrix();
-      translate(eyeX, eyeY);
-      fill(255);
-      ellipse(0, 0, eyeR, eyeR);
-      rotate(angle);
-      fill(0);
-      ellipse(eyeR/4, 0, eyeR/2, eyeR/2);
-      fill(255);
-      ellipse(eyeR/6, 0, eyeR/3, eyeR/3);
-      popMatrix();
-
-      sleepyState=true;
-  }
+    } else {
+      fill(120, 200, 140);
+      circle(eyeX, eyeY, eyeR);
+      fill(120, 200, 140);
+      circle(eyeX+30, eyeY, eyeR);
+      if (millis() - lastTime > 2000) {
+        sleepyState=true;
+        lastTime = millis();
+      }
+    }
   }
 }
