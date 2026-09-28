@@ -30,6 +30,9 @@ void draw() {
   eye2.update(mouseX, mouseY);
   eye2.display();
 
+  eye.update(mouseX, mouseY);
+  eye.display();
+
   for (int i = particles.size() - 1; i >= 0; i--) {
     Particle p = particles.get(i);
 
@@ -40,8 +43,6 @@ void draw() {
       particles.remove(i);
     }
   }
-  eye.update(mouseX, mouseY);
-  eye.display();
 }
 
 
