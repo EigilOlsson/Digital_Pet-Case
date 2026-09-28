@@ -77,25 +77,25 @@ void draw() {
   rect(610, 160, 160, 110);
   textSize(16);
   fill(0);
-  for(int i = 0; i < 5; i++){
-  text("~~~~~~~~~~~~" + " $$$", 690, 180+i*20);
+  for (int i = 0; i < 5; i++) {
+    text("~~~~~~~~~~~~" + " $$$", 690, 180+i*20);
   }
+
 
 
   pet.update();
   pet.display();
 
-  eye.update(mouseX, mouseY);
-  eye.display();
-
   eye2.update(mouseX, mouseY);
   eye2.display();
+
+  eye.update(mouseX, mouseY);
+  eye.display();
 }
 
 
 void keyPressed() {
   if (key == 's' || key == 'S') {
     sleepActivity.sleep(pet);
-    
   }
 }
