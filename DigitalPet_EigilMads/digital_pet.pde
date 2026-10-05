@@ -23,7 +23,7 @@ class DigitalPet {
       energy = energy - energyUse;
       energy = constrain(energy, 0, 200);
     } else {
-      energy += energy + energyUse;
+      energy += energyUse*2;
       energy = constrain(energy, 0, 200);
       energyState=true;
     }
