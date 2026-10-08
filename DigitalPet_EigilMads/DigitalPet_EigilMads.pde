@@ -2,7 +2,9 @@ DigitalPet pet;
 Activity sleepActivity;
 Design design;
 float petX = 400;
-float petY = 300;
+float petY = 500;
+float petStatsX = 50;
+float petStatsY = -50;
 float lastTime;
 
 Eye eye, eye2;

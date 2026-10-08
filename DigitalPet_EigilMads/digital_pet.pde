@@ -94,7 +94,7 @@ class DigitalPet {
     textSize(12);
     text(name, x, y + 17);
     textSize(20);
-    text("Energi: " + int(energy), x, y + 75);
+    text("Energi: " + int(energy), petStatsX, petStatsY + 75);
 
 
 
