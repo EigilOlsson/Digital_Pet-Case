@@ -1,6 +1,8 @@
 DigitalPet pet;
 Activity sleepActivity;
 Design design;
+
+Curiosity curiosity;
 float petX = 400;
 float petY = 500;
 float petStatsX = 50;
@@ -20,6 +22,7 @@ void setup() {
   eye = new Eye("eye1", petX-15, petY-40, 20);
   eye2 = new Eye("eye1", petX+15, petY-40, 20);
   design = new Design();
+  curiosity = new Curiosity("c1", petX, petY+20);
 }
 
 void draw() {
@@ -28,6 +31,10 @@ void draw() {
 
   pet.update();
   pet.display();
+
+  
+  curiosity.update();
+  curiosity.display();
 
   eye2.update(mouseX, mouseY);
   eye2.display();

@@ -18,16 +18,25 @@ class DigitalPet {
     energyState = true;
   }
 
-  void update() {
-    if (energyState==true) {
-      energy = energy - energyUse;
-      energy = constrain(energy, 0, 200);
-    } else {
-      energy += energyUse*2;
-      energy = constrain(energy, 0, 200);
-      energyState=true;
-    }
+void update() {
+
+  if (energyState == true) {
+    energy = energy - energyUse;
+    energy = constrain(energy, 0, maxEnergy);
+  } else {
+    energy += energyUse * 2;
+    energy = constrain(energy, 0, maxEnergy);
+    energyState = true;
   }
+
+  if (energy < 100) {
+    curiosity.stateCurious = false;
+  } else {
+    curiosity.stateCurious = true;
+  }
+}
+
+  
 
   void changeEnergy(int energyChange) {
     if (energyChange==1) {
@@ -110,5 +119,7 @@ class DigitalPet {
       line(x, y - 7, x - 7, y - 12);
       line(x, y - 7, x + 7, y - 12);
     }
+  
   }
+
 }
