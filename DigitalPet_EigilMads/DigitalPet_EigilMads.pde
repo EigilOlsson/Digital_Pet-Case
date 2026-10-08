@@ -22,7 +22,7 @@ void setup() {
   eye = new Eye("eye1", petX-15, petY-40, 20);
   eye2 = new Eye("eye1", petX+15, petY-40, 20);
   design = new Design();
-  curiosity = new Curiosity("c1", petX, petY+20);
+  curiosity = new Curiosity(" ", petStatsX+15, petStatsY+20);
 }
 
 void draw() {
